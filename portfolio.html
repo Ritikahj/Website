@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritika Jali | Data Scientist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #3498DB;
+            --accent: #1ABC9C;
+            --light: #ECF0F1;
+            --dark: #2C3E50;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            padding: 9rem 0 5rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('/api/placeholder/1200/600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background-color: #16a085;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 0.5rem auto;
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .skills {
+            background-color: var(--light);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category li::before {
+            content: "→";
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        .experience {
+            background-color: white;
+        }
+        
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            display: flex;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .projects {
+            background-color: var(--light);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-method {
+            text-align: center;
+        }
+        
+        .contact-method i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-method h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-method p {
+            color: var(--text);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin-left: 40px;
+            }
+            
+            .timeline-date {
+                left: 20px;
+                transform: none;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Ritika Jali</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Ritika Jali</h1>
+            <p>Data Scientist | Analytics Professional | Machine Learning Engineer</p>
+            <a href="#contact" class="btn">Contact Me</a>
+            <a href="#projects" class="btn btn-outline">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/400/400" alt="Ritika Jali">
+                </div>
+                <div class="about-text">
+                    <h3>Hello, I'm Ritika</h3>
+                    <p>I'm a data scientist with expertise in machine learning, data analytics, and business intelligence. Currently working at Ketchbrook Analytics, I specialize in transforming complex data into actionable insights.</p>
+                    <p>With a Master's degree in Data Analytics from Pennsylvania State University and experience at organizations like KPMG, I bring a blend of technical expertise and business acumen to every project.</p>
+                    <p>My passion lies in developing innovative solutions through data-driven approaches, with a focus on predictive analytics, data visualization, and machine learning applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Languages</h3>
+                    <ul>
+                        <li>Python (NumPy, Pandas, Scikit-learn)</li>
+                        <li>R for statistical analysis</li>
+                        <li>SQL (PostgreSQL, Oracle)</li>
+                        <li>C++</li>
+                        <li>HTML</li>
+                        <li>Bash and Git</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Analysis & Visualization</h3>
+                    <ul>
+                        <li>Data mining & EDA</li>
+                        <li>Seaborn & Matplotlib</li>
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>Predictive analytics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                    <ul>
+                        <li>Supervised & Unsupervised Learning</li>
+                        <li>Deep Learning (TensorFlow, PyTorch)</li>
+                        <li>Natural Language Processing</li>
+                        <li>Time Series Analysis</li>
+                        <li>Recommendation Systems</li>
+                        <li>Anomaly Detection</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Big Data & Analytics</h3>
+                    <ul>
+                        <li>Hadoop</li>
+                        <li>Azure</li>
+                        <li>AWS</li>
+                        <li>Docker</li>
+                        <li>PostgreSQL</li>
+                        <li>Oracle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Jr. Data Scientist</h3>
+                        <h4>Ketchbrook Analytics</h4>
+                        <p>Developed automated data pipelines and interactive dashboards to enhance decision-making processes. Reduced report generation time from 2 hours to under 10 minutes.</p>
+                    </div>
+                    <div class="timeline-date">Feb 2025 - Present</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Research Assistant</h3>
+                        <h4>Pennsylvania State University</h4>
+                        <p>Developed AI-driven forecasting models and optimized data pipelines for high-dimensional datasets, reducing computational time by 30%.</p>
+                    </div>
+                    <div class="timeline-date">Jan 2024 - Dec 2024</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Data Analyst Intern</h3>
+                        <h4>Coelho Consulting</h4>
+                        <p>Optimized ETL workflows and created interactive dashboards for analyzing homelessness trends, improving intervention programs by 20%.</p>
+                    </div>
+                    <div class="timeline-date">Jun 2024 - Aug 2024</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>KPMG</h4>
+                        <p>Designed financial reporting dashboards and automated reporting workflows, reducing manual effort by 30+ hours monthly.</p>
+                    </div>
+                    <div class="timeline-date">Jan 2022 - Jul 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="Resume Screening Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Resume Screening using NLP</h3>
+                        <p>Created a deep learning model using BERT and PyTorch for automating resume screening with high precision in extracting relevant candidate data.</p>
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">BERT</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="Amazon Analytics Dashboard">
+                    </div>
+                    <div class="project-info">
+                        <h3>Amazon Analytics Dashboard</h3>
+                        <p>Created an interactive dashboard in Python to analyze customer purchasing patterns and product performance, providing actionable insights.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">EDA</span>
+                            <span class="tag">Predictive Models</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="H&M Fashion Recommendation">
+                    </div>
+                    <div class="project-info">
+                        <h3>H&M Fashion Recommendation</h3>
+                        <p>Applied machine learning techniques including autoencoders and collaborative filtering to build a personalized fashion recommendation system.</p>
+                        <div class="project-tags">
+                            <span class="tag">Recommendation Systems</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Collaborative Filtering</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="Credit Card Approval Prediction">
+                    </div>
+                    <div class="project-info">
+                        <h3>Credit Card Approval Prediction</h3>
+                        <p>Developed a machine learning model focusing on data preprocessing techniques such as handling imbalanced datasets and feature engineering.</p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Data Preprocessing</span>
+                            <span class="tag">Feature Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section about">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="about-content" style="flex-direction: column;">
+                <div class="publication">
+                    <h3>AI Enabled Vehicle Detection and Counting Using Deep Learning</h3>
+                    <p>International Conference on Computer Communication and Informatics (ICCCI), 2022</p>
+                </div>
+                <div class="publication" style="margin-top: 2rem;">
+                    <h3>Vehicle Detection and Counting using Deep Learning based YOLO and Deep SORT Algorithm</h3>
+                    <p>First International Conference on Electrical, Electronics, Information and Communication Technologies (ICEEICT), 2022</p>
+                </div>
+                <div class="publication" style="margin-top: 2rem;">
+                    <h3>Fraud Detection and Management for Telecommunication Systems using AI</h3>
+                    <p>3rd International Conference on Smart Electronics and Communication (ICOSEC), 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>ritikajali@gmail.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>(484) 645-0262</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Paoli, PA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ritika-jali" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ritikajali" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/ritikajali" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Ritika Jali. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
